@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block title %}Serach Hashtag{% endblock title %}
+
+{% block content %}
+  
+<center>
+
+
+  <form method="POST" action = "result/"  class="m-5 p-2" style="width: 35%;border:solid 1.5px #000;border-radius:2%;">
+    {% csrf_token %}
+    <label><h3>Serach Your Hashtag</h3></label><br><br><br>
+    <label for="" style="font-size:25px">Hashtag :&nbsp&nbsp</label><input type="text" name="hashtag" value="" required="True" placeholder="Enter Here.." style="padding:5px; border-radius:5px"">
+    <br><br><br>
+    <input type="submit" value="Search" class="btn btn-primary p-2">
+  <br><br><br><br>
+  <b><p>Enter Your Hashtag About COVID-19.</p></b>
+<b>Ex-#lockdown4.0,#gocoronago,#fightagaintscorona etc.</b>
+</form>
+
+</center>
+
+{% endblock content %}
