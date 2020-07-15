@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-width=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <!--jQuery library-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!--Latest compiled and minified JavaScript-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+
+    <body style="background-color:#b3f5eb;">
+        <div class="navbar navbar-inverse navbar-fixed-top p-4" style="background-color:blue">
+            <a class="navbar-brand btn btn-outline-dark" href="/" style="font-size:25px;color:white;border:none;"><i class="fas fa-home"></i> <b>Sentiment Analysis of COVID-19 Tweets</b></a>
+            <a class="navbar-brand btn btn-outline-dark" style="font-size:25px;color: white;border:none;" href="about/" ><i class="fas fa-info"></i> <b>About</b></a>
+          </div>
+        
+            {% block content %}
+            
+            {% endblock  %}
+
+            <footer style="background-color: blue;
+            color:#fff;
+            font-size:14px;
+            margin-top: 100px;
+            padding-bottom: 10px;">
+               <div class="container">
+                 <br>
+                 <center>
+                   <p>Copyright &copy; Sentiment Analysis. All Rights Reserved | Contact Us: +91 7517095960</p>
+                  </center>
+                </div>
+            </footer>
+        
+
+    </body>
+
+</html>

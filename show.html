@@ -1,0 +1,113 @@
+{% extends 'index.html'%}
+
+{% block title %}  Graphs  {%endblock%}
+
+
+{% block content %}    
+
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<a href="/" class="btn btn-primary" style="margin-top:2%;margin-bottom:5%;margin-left: 90%;" >BACK</a>
+<center>
+    <h3>Hashtag : {{hashtag}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total Tweets : {{positive|add:negative|add:neutral}} </h3>
+</center>
+
+<div id="chartContainer" class="pt-5" style="height: 400px; width: 100%;display: inline-block;"></div>
+<br><br><br><br>
+<div id="chartContainer1" class="pt-5" style="  height: 500px; width: 100%;display: inline-block;"></div>
+
+
+<script type="text/javascript">    
+
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        title:{
+            text: "Sentiment Counts",
+            padding:5,
+            backgroundColor:"#f4d5a6",
+            fontFamily: "tahoma",
+            
+        },
+        axisX:{
+            title : "Countings of Tweets",
+            
+        },
+        axisY:{
+            title : "Hashtags",
+        },
+        toolTip:{
+            shared:true
+        },
+        data: [              
+        {
+            // Change type to "doughnut", "line", "splineArea", etc.
+            type:"pie",
+            
+            dataPoints: [
+            {        
+                y : {{positive}},
+                label : "positive",
+            },
+            {        
+                y : {{negative}},
+                label : "negative",
+            },
+            {        
+                y : {{neutral}},
+                label : "neutral",
+            },
+
+            ]
+        }
+        ]
+    });
+    chart.render();
+
+
+
+
+
+
+
+
+
+    var chart = new CanvasJS.Chart("chartContainer1",
+    {
+    title:{
+        text: "Tweets per Day",
+        padding:5,
+        backgroundColor:"#f4d5a6",
+        fontFamily: "tahoma",
+    },
+    axisX:{
+        title : "{{hashtag}}"
+    },
+    axisY: {
+        title: "Tweet Counts"
+    },
+    
+    data: [
+    {        
+        type: "area",
+        dataPoints: [//array
+        
+            {% for i,j in data.items %}
+                { x: new Date({{i}}), y: {{ j }},label:"{{i}}" },
+            {% endfor %}
+        
+
+        
+        ]
+    }
+    ]
+});
+
+    chart.render();
+
+
+</script>
+
+    
+
+{%endblock%}
